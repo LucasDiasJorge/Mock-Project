@@ -28,8 +28,10 @@ void handle_signal(int signal) {
 
 int main(int argc, char* argv[]) {
 
-    if(argc != 2){
-        return 0;
+    // Verificação do número de argumentos
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <positive integer>\n", argv[0]);
+        return 1;
     }
 
     // Configuração de captura de sinais
@@ -65,6 +67,6 @@ int main(int argc, char* argv[]) {
     pthread_join(thread_pi, NULL);
 
     fprintf(stdout, "Program terminated gracefully.\n");
-    
+
     return 0;
 }
