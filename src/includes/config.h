@@ -14,13 +14,15 @@ typedef struct config
     int port;
 } CONFIG;
 
+extern CONFIG config[1];
+
 // Inicializa a estrutura de configuração.
-void init_config(CONFIG *config);
+void init_config();
 
 // Analisa o buffer para informações de configuração. Retorna um código de erro ou 0 para nenhum erro.
-int parse_config(char *buf, CONFIG *config);
+int parse_config(char *buf);
 
 // Imprime as informações de configuração no formato adequado.
-void print_config(CONFIG *config);
+void print_config();
 
 #endif // CONFIG_H

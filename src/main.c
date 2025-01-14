@@ -47,11 +47,10 @@ int main(int argc, char* argv[]) {
 
     DEBUG_PRINT("Init main.");
 
-    CONFIG config[1];
-    init_config(config);
+    init_config();
 
     DEBUG_PRINT("Printing config.");
-    print_config(config);
+    print_config();
 
     DEBUG_PRINT("Creating Threads.");
 
