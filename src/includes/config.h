@@ -3,15 +3,19 @@
 
 #include <stdio.h>
 
-#define CONFIG_SIZE (256)
+#define HOST_SIZE (256)
+#define API_KEY_SIZE (256)
+#define BUFFER_SIZE (512)
 #define HOST_SET (1)
 #define PORT_SET (2)
+#define API_KEY_SET (4)
 
 typedef struct config
 {
     unsigned set;
-    char host[CONFIG_SIZE];
+    char host[HOST_SIZE];
     int port;
+    char api_key[256];
 } CONFIG;
 
 extern CONFIG config[1];
