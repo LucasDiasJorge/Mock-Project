@@ -6,7 +6,7 @@ COMMIT_FILE = $(BUILD_DIR)/commit.txt
 
 # Compilador e flags
 CC = gcc
-INTERNLIBS = src/config.c src/pi.c
+INTERNLIBS = src/config.c src/pi.c src/keepalive.c
 CFLAGS = -Wall -Wextra -Werror
 LDFLAGS = -lcurl -lm
 

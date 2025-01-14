@@ -8,6 +8,7 @@
 
 #include "includes/config.h"
 #include "includes/pi.h"
+#include "includes/keepalive.h"
 
 // Macro para mensagens de debug
 #ifdef DEBUG
@@ -16,7 +17,7 @@
     #define DEBUG_PRINT(fmt, ...) // Nada
 #endif
 
-pthread_t thread_pi;
+pthread_t thread_pi, thread_keepalive;
 
 // Função para tratar sinais
 void handle_signal(int signal) {
@@ -60,10 +61,16 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    if (pthread_create(&thread_keepalive, NULL, keepalive_request, NULL) != 0) {
+        fprintf(stderr, "Error creating thread for keepalive\n");
+        return 1;
+    }
+
     DEBUG_PRINT("Joining Threads.");
 
     // Aguarda threads finalizarem
     pthread_join(thread_pi, NULL);
+    pthread_join(thread_keepalive, NULL);
 
     fprintf(stdout, "Program terminated gracefully.\n");
 
