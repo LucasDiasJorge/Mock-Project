@@ -17,7 +17,7 @@ void* keepalive_request() {
 
         // Add API key header
         char api_key_header[256];
-        snprintf(api_key_header, sizeof(api_key_header), "Authorization: Bearer %s", config->api_key);
+        snprintf(api_key_header, sizeof(api_key_header), "API-Key: %s", config->api_key);
         headers = curl_slist_append(headers, api_key_header);
         headers = curl_slist_append(headers, "Content-Type: application/json");
 
